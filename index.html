@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>وب‌سایت آپلود نوشته</title>
+	<meta charset="UTF-8">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+
+		h1 {
+			text-align: center;
+			color: #333;
+		}
+
+		form {
+			background-color: #fff;
+			padding: 20px;
+			margin: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+		}
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		textarea {
+			display: block;
+			margin-bottom: 10px;
+			padding: 5px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+		}
+
+		button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #3e8e41;
+		}
+
+		#comments {
+			background-color: #fff;
+			padding: 20px;
+			margin: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+		}
+	</style>
+</head>
+<body>
+	<h1>وب‌سایت آپلود نوشته</h1>
+	<form>
+		<label for="input-text">نوشته‌ی خود را بنویسید:</label><br>
+		<textarea id="input-text" name="input-text" rows="10" cols="50"></textarea><br>
+		<button type="button" onclick="submitText()">ارسال نوشته</button>
+	</form>
+	<div id="comments"></div>
+	<script>
+		function submitText() {
+			var inputText = document.getElementById("input-text").value;
+			if (inputText !== "") {
+				var commentDiv = document.getElementById("comments");
+				var newComment = document.createElement("div");
+				newComment.innerHTML = "<p>" + inputText + "</p><hr>";
+				commentDiv.appendChild(newComment);
+				document.getElementById("input-text").value = "";
+			}
+		}
+	</script>
+</body>
+</html>
